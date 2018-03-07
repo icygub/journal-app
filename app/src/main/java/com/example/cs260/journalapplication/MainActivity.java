@@ -12,5 +12,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // john was here
-    // So was Glen
+    // So was Glen, truly.
 }
