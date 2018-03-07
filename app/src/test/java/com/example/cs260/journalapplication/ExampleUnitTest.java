@@ -11,7 +11,12 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void deleteTags() throws Exception {
+        Tags tags = new Tags();
+        for(int i = 0; i < 10; i++) {
+            tags.addTag(new Tag(Integer.toString(i)));
+        }
+
     }
+
 }
