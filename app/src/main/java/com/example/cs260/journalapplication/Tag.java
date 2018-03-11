@@ -7,10 +7,15 @@ package com.example.cs260.journalapplication;
 public class Tag {
 
     private String text;
-    private JournalEntry journalEntry;
+    //private JournalEntry journalEntry;
 
-    public Tag(String text, JournalEntry journalEntry) {
+    public Tag(String text) {
         this.text = text;
-        this.journalEntry = journalEntry;
+        //this.journalEntry = journalEntry;
+    }
+
+    @Override
+    public String toString() {
+        return text;
     }
 }

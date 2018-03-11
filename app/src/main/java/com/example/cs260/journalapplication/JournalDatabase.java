@@ -41,7 +41,13 @@ public class JournalDatabase {
         }
     }
 
+    //created by John
     public ArrayList<JournalEntry> getAllEntries() {
         return journalEntries;
+    }
+
+    //created by John
+    public JournalEntry getLastEntry() {
+        return journalEntries.get(journalEntries.size()-1);
     }
 }

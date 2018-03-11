@@ -18,6 +18,7 @@ public class JournalEntry {
     public JournalEntry(LocalDateTime dateTime, String text){
         this.dateTime = dateTime;
         this.text = text;
+        tags = new ArrayList<>();
     }
 
     public LocalDateTime getDateTime() { return dateTime;}
@@ -31,6 +32,14 @@ public class JournalEntry {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public void addTag(Tag tag) {
+        tags.add(tag);
+    }
+
+    public ArrayList<Tag> getTags() {
+        return tags;
     }
 
     @Override
