@@ -64,6 +64,12 @@ public class Journal {
         }
     }
 
+    public void printAllEntries() {
+        for (JournalEntry entry : journalDatabase.getAllEntries()) {
+            System.out.println(entry);
+        }
+    }
+
     public void addEntry() {
         LocalDateTime dateTime = readDateTime();
         System.out.println("Enter the entry text:");
@@ -104,10 +110,12 @@ public class Journal {
         System.out.println("Today is: " + LocalDateTime.now().format(dateTimeFormatter));
         System.out.println();
         // printing the home screen
-        System.out.println("Today:\n------");
-        printEntries(LocalDate.now());
-        System.out.println();
-        System.out.println("Tomorrow:\n---------");
+//        System.out.println("Today:\n------");
+//        printEntries(LocalDate.now());
+//        System.out.println();
+//        System.out.println("Tomorrow:\n---------");
+        System.out.println("All:\n------");
+        printAllEntries();
         printEntries(LocalDate.now().plusDays(1));
         System.out.println();
     }

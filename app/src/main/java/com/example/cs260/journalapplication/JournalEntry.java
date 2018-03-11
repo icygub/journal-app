@@ -1,6 +1,7 @@
 package com.example.cs260.journalapplication;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  * Created by matthewruben on 3/5/18.
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 public class JournalEntry {
     private LocalDateTime dateTime;
     private String text;
+    private ArrayList<Tag> tags;
 
     /**
      * Constructor

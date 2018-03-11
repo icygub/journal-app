@@ -40,4 +40,8 @@ public class JournalDatabase {
             journalEntries.remove(entry);
         }
     }
+
+    public ArrayList<JournalEntry> getAllEntries() {
+        return journalEntries;
+    }
 }
