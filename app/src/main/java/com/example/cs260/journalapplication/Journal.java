@@ -59,7 +59,6 @@ public class Journal {
         return date;
     }
 
-    //created by John
     public void printEntries(LocalDate day) {
         ArrayList<JournalEntry> entries = journalDatabase.findEntries(day.atStartOfDay(), false);
         for (JournalEntry entry : entries) {
@@ -74,7 +73,6 @@ public class Journal {
         }
     }
 
-    //created by John
     public void addEntry() {
         LocalDateTime dateTime = readDateTime();
         System.out.println("Enter the entry text:");
