@@ -115,20 +115,12 @@ public class TagClassUnitTest {
     public void TagClass_GivenText_FindTags_ShouldPass(){
         List<String> testList = new ArrayList<String>();
         Tag tClass = new Tag(testList);
-        String testText = "Today I went to Universal Studio #MoviesFun with my family. It was a #SunnyDay, we had the opportunity to " +
-                "enter many attractions. Nevertheless";
-        List<String> tagsFound = Tag.FindTaginText(testText);
-        int index = tagsFound.size();
-        assertEquals(2 , index);
-        String tempTag = tagsFound.get(0);
-        assertEquals("MoviesFun", tempTag);
-        tempTag = tagsFound.get(1);
-        assertEquals("SunnyDay", tempTag);
-        testText = "#TestEnd";
-        tagsFound = Tag.FindTaginText(testText);
-        index = tagsFound.size();
-        tempTag = tagsFound.get(0);
-        assertEquals(1, index);
-        assertEquals("TestEnd", tempTag);
+        String testText = "Today I went to Universal Studio #MoviesFun with my family. It was a #SunnyDay and we had the opportunity to " +
+                "enter many attractions. Nevertheless i was #Sick";
+        List<String> hashtags = Tag.GetHashtags(testText);
+        assertEquals(3, hashtags.size());
+        assertEquals("#MoviesFun", hashtags.get(0));
+        assertEquals("#SunnyDay", hashtags.get(1));
+        assertEquals("#Sick", hashtags.get(2));
     }
 }

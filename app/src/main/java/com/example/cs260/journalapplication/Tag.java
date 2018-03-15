@@ -54,23 +54,14 @@ public class Tag {
         }
     }
 
-    public static List<String> FindTaginText(String textToSearch){
-        char[] textToChar = textToSearch.toCharArray();
-        List<Integer> IndexOfTags = FindNumberAndIndexOfTags("This is a test text");
-        List<String> foundTags = new ArrayList<String>();
-        String tempTag = "";
-        return foundTags;
-    }
-
-    public static List<Integer> FindNumberAndIndexOfTags(String testText){
-        char[] textToChar = testText.toCharArray();
-        List<Integer> IndexOfTags = new ArrayList<Integer>();
-
-        for(int i = 0; i < textToChar.length; i++){
-            if(textToChar[i] == '#')
-                IndexOfTags.add(i);
+    public static List<String> GetHashtags(String text) {
+        String[] words = text.split(" ");
+        List<String> hashtags = new ArrayList<String>();
+        for (String word : words) {
+            if (word.startsWith("#")) {
+                hashtags.add(word);
+            }
         }
-
-        return IndexOfTags;
+        return hashtags;
     }
 }
