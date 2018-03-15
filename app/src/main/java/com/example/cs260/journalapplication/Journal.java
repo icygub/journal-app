@@ -95,6 +95,14 @@ public class Journal {
         }
     }
 
+    public void showAllTags() {
+        for(JournalEntry entry : journalDatabase.getAllEntries()) {
+            for(Tag tag : entry.getTags()) {
+                System.out.println(tag);
+            }
+        }
+    }
+
     //created by John
     public void addTag(String tagText) {
         JournalEntry lastEntry = journalDatabase.getLastEntry();

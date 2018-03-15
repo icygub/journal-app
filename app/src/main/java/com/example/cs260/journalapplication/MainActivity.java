@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         diary.printHomeScreen();
         System.out.println();
         System.out.println("Choose an action:");
+        System.out.println("0 - Show all tags");
         System.out.println("1 - Add an entry");
         System.out.println("2 - Search for entries");
         System.out.println("3 - Delete entries");
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println();
         // reaction to the choice
         switch (choice) {
+            case "0":
+                diary.showAllTags();
             case "1":
                 diary.addEntry();
                 break;
