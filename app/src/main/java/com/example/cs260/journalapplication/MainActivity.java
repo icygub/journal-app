@@ -1,16 +1,39 @@
 package com.example.cs260.journalapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
+    Journal diary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    /**
+     * Run New Entry Activity
+     * @param view used to distinguish which view is selected
+     */
+    public void CreateNewEntryClicked(View view){
+        Intent showNewEntryActivity = new Intent(this, NewEntry.class);
+
+        startActivity(showNewEntryActivity);
+    }
+
+    /**
+     * Run Search Entry Activity
+     * @param view used to distinguish which view is selected
+     */
+    public void SearchEntryClicked(View view){
+        Intent showSearchEntryActivity = new Intent(this, SearchEntry.class);
+
+        startActivity(showSearchEntryActivity);
     }
 
     /**

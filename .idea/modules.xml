@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JournalApplication.iml" filepath="$PROJECT_DIR$/JournalApplication.iml" />
-      <module fileurl="file://C:\Users\icyhot\AndroidStudioProjects\journal-app\JournalApplication.iml" filepath="C:\Users\icyhot\AndroidStudioProjects\journal-app\JournalApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/journal-app.iml" filepath="$PROJECT_DIR$/journal-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/journal-app.iml" filepath="$PROJECT_DIR$/.idea/journal-app.iml" />
     </modules>
   </component>
 </project>

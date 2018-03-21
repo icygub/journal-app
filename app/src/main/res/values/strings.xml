@@ -1,3 +1,10 @@
 <resources>
+    <item name="visible" type="id" />
+    <item name="masked" type="id" />
     <string name="app_name">JournalApplication</string>
+
+    <string name="New_Entry">New Entry</string>
+    <string name="entry">Entry</string>
+    <string name="save">Save</string>
 </resources>
+
