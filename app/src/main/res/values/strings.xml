@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JournalApplication</string>
+    <string name="get_video">Get Video</string>
 </resources>
