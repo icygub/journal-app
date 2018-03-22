@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
         switch (choice) {
             case "0":
                 diary.showAllTags();
+                break;
             case "1":
                 diary.addEntry();
                 break;
