@@ -2,6 +2,8 @@ package com.example.cs260.journalapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,15 +38,6 @@ public class JournalEntry {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public void addAudioFile(){
-        final int PICK_CONTACT_REQUEST = 1;
-
-        Intent intent;
-        intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        intent.setType("audio/*");
     }
 
     @Override
