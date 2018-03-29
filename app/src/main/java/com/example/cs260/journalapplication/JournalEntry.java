@@ -53,7 +53,7 @@ public class JournalEntry {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode,
+    public String onActivityResult(int requestCode, int resultCode,
                                  Intent resultData) {
 
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
@@ -61,9 +61,11 @@ public class JournalEntry {
             if (resultData != null) {
                 uri = resultData.getData();
                 Log.i(TAG, "Uri: " + uri.toString());
-                // Here goues the method thatwill call the add Audio add 
+                return uri.toString();
             }
         }
+
+        return null;
     }
 
     @Override
