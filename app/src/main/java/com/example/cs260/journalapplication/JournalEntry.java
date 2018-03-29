@@ -61,6 +61,7 @@ public class JournalEntry {
             if (resultData != null) {
                 uri = resultData.getData();
                 Log.i(TAG, "Uri: " + uri.toString());
+                // Here goues the method thatwill call the add Audio add 
             }
         }
     }
