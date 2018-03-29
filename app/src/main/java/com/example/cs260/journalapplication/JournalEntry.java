@@ -2,10 +2,13 @@ package com.example.cs260.journalapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
+import android.util.Log;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
 import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 /**
@@ -39,12 +42,27 @@ public class JournalEntry {
     }
 
     public void addAudioFile(){
-        final int PICK_CONTACT_REQUEST = 1;
 
-        Intent intent;
-        intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        final int PICK_AUDIO_REQUEST = 1;
+
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("audio/*");
+
+        startActivityForResult(intent, PICK_AUDIO_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent resultData) {
+
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            Uri uri = null;
+            if (resultData != null) {
+                uri = resultData.getData();
+                Log.i(TAG, "Uri: " + uri.toString());
+            }
+        }
     }
 
     @Override
