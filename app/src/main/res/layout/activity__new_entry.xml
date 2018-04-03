@@ -23,7 +23,21 @@
             android:id="@+id/user_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="New Entry" />
+            android:hint="@string/New_Entry" />
+
+        <Button
+            android:id="@+id/button_addmedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Media"
+            android:onClick="addMedia"/>
+
+        <VideoView
+            android:id="@+id/videoview_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -33,7 +47,7 @@
         android:layout_marginBottom="7dp"
         android:layout_marginEnd="198dp"
         android:layout_marginStart="8dp"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
