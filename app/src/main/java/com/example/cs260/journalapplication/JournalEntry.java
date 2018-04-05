@@ -19,7 +19,10 @@ public class JournalEntry {
     private LocalDateTime dateTime;
     private String text;
     private List<String> audiosList;
-    private static final int PICK_AUDIO_REQUEST = 1;
+
+    //private static final int PICK_AUDIO_REQUEST = 1;
+
+
 
     /**
      * Constructor
@@ -42,7 +45,8 @@ public class JournalEntry {
         this.text = text;
     }
 
-    public void addAudioFile(){
+    //public void addAudioFile(){
+
 //        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
 //        intent.addCategory(Intent.CATEGORY_OPENABLE);
 //        intent.setType("audio/*");
@@ -52,23 +56,34 @@ public class JournalEntry {
 //        chooseFile.setType("*/*");
 //        chooseFile = Intent.createChooser(chooseFile, "Choose a file");
 //        startActivityForResult(chooseFile, READ_REQUEST_CODE);
-    }
+    //}
 
 
-    public String onActivityResult(int requestCode, int resultCode,
-                                 Intent resultData) {
+//         final int PICK_AUDIO_REQUEST = 1;
 
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            Uri uri = null;
-            if (resultData != null) {
-                uri = resultData.getData();
-                Log.i(TAG, "Uri: " + uri.toString());
-                return uri.toString();
-            }
-        }
+//         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//         intent.addCategory(Intent.CATEGORY_OPENABLE);
+//         intent.setType("audio/*");
 
-        return null;
-    }
+//         startActivityForResult(intent, PICK_AUDIO_REQUEST);
+//     }
+
+    @Override
+
+//     public String onActivityResult(int requestCode, int resultCode,
+//                                  Intent resultData) {
+
+//         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+//             Uri uri = null;
+//             if (resultData != null) {
+//                 uri = resultData.getData();
+//                 Log.i(TAG, "Uri: " + uri.toString());
+//                 return uri.toString();
+//             }
+//         }
+
+//         return null;
+//     }
 
     @Override
     public String toString()
