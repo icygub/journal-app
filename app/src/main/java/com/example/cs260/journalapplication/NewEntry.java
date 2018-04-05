@@ -104,9 +104,10 @@ public class NewEntry extends AppCompatActivity {
             // Pull that URI using resultData.getData().
             Uri uri = null;
             if (resultData != null) {
+                uri = resultData.getData();
                 if(mediaType.equals("video/*")) {
                     videoView = findViewById(R.id.videoview_video);
-                    uri = resultData.getData();
+//                    uri = resultData.getData();
                     videoView.setVideoURI(uri);
                     videoView.requestFocus();
                     videoView.start();
@@ -129,7 +130,6 @@ public class NewEntry extends AppCompatActivity {
                 }
                 else if(mediaType.equals("image/*")) {
                     ImageView imgView = findViewById(R.id.imageView_image);
-
                     imgView.setImageURI(uri);
                 }
 
