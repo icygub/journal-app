@@ -2,6 +2,8 @@ package com.example.cs260.journalapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +11,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.VideoView;
+
+import java.io.IOException;
 
 public class NewEntry extends AppCompatActivity {
 
@@ -20,6 +25,7 @@ public class NewEntry extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
     //private static final int PICKFILE_REQUEST_CODE = 53;
     private VideoView videoView;
+    private String mediaType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +44,25 @@ public class NewEntry extends AppCompatActivity {
         });
     }
 
-    public void addMedia(View view) {
-        Log.i("add media method", "we are here");
-        performFileSearch();
+    public void addVideo(View view) {
+        mediaType = "video/*";
+        performFileSearch(mediaType);
+    }
+
+    public void addAudio(View view) {
+        mediaType = "audio/*";
+        performFileSearch(mediaType);
+    }
+
+    public void addPhoto(View view) {
+        mediaType = "image/*";
+        performFileSearch(mediaType);
     }
 
     /**
      * Fires an intent to spin up the "file chooser" UI and select an image.
      */
-    public void performFileSearch() {
+    public void performFileSearch(String mediaType) {
 
         // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
         // browser.
@@ -68,7 +84,7 @@ public class NewEntry extends AppCompatActivity {
 //        startActivityForResult(intent, PICKFILE_REQUEST_CODE);
 
         Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
-        chooseFile.setType("*/*");
+        chooseFile.setType(mediaType);
         chooseFile = Intent.createChooser(chooseFile, "Choose a file");
         startActivityForResult(chooseFile, READ_REQUEST_CODE);
     }
@@ -86,14 +102,37 @@ public class NewEntry extends AppCompatActivity {
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.
             // Pull that URI using resultData.getData().
-            Uri uri;
+            Uri uri = null;
             if (resultData != null) {
-                Log.i("hello", "hello agaaaaaainnnnn");
-                videoView = findViewById(R.id.videoview_video);
-                uri = resultData.getData();
-                videoView.setVideoURI(uri);
-                videoView.requestFocus();
-                videoView.start();
+                if(mediaType.equals("video/*")) {
+                    videoView = findViewById(R.id.videoview_video);
+                    uri = resultData.getData();
+                    videoView.setVideoURI(uri);
+                    videoView.requestFocus();
+                    videoView.start();
+                }
+                else if(mediaType.equals("audio/*")) {
+
+                    MediaPlayer mediaPlayer = new MediaPlayer();
+                    mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                    try {
+                        mediaPlayer.setDataSource(getApplicationContext(), uri);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        mediaPlayer.prepare();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    mediaPlayer.start();
+                }
+                else if(mediaType.equals("image/*")) {
+                    ImageView imgView = findViewById(R.id.imageView_image);
+
+                    imgView.setImageURI(uri);
+                }
+
             }
         }
     }

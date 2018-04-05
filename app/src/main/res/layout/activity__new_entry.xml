@@ -25,18 +25,51 @@
             android:layout_height="wrap_content"
             android:hint="@string/New_Entry" />
 
-        <Button
-            android:id="@+id/button_addmedia"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Media"
-            android:onClick="addMedia"/>
+            android:orientation="horizontal">
 
-        <VideoView
-            android:id="@+id/videoview_video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <Button
+                android:id="@+id/button_addVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addVideo"
+                android:text="@string/add_video" />
+
+            <Button
+                android:id="@+id/button_addAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addAudio"
+                android:text="@string/add_audio" />
+
+            <Button
+                android:id="@+id/button_addPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addPhoto"
+                android:text="@string/add_photo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <VideoView
+                android:id="@+id/videoview_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imageView_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/ic_launcher" />
+        </LinearLayout>
 
     </android.support.design.widget.TextInputLayout>
 

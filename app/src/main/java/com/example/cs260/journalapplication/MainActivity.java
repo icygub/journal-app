@@ -10,7 +10,6 @@ import android.widget.VideoView;
 
 import java.util.Scanner;
 
-import static com.example.cs260.journalapplication.R.id.button_addmedia;
 
 public class MainActivity extends AppCompatActivity {
     Journal diary;
