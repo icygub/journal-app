@@ -20,6 +20,10 @@ public class JournalEntry {
     private String text;
     private List<String> audiosList;
 
+    //private static final int PICK_AUDIO_REQUEST = 1;
+
+
+
     /**
      * Constructor
      */
@@ -41,32 +45,45 @@ public class JournalEntry {
         this.text = text;
     }
 
-    public void addAudioFile(){
+    //public void addAudioFile(){
 
-        final int PICK_AUDIO_REQUEST = 1;
+//        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//        intent.addCategory(Intent.CATEGORY_OPENABLE);
+//        intent.setType("audio/*");
+//
+//        startActivityForResult(intent, PICK_AUDIO_REQUEST);
+//        Intent chooseFile = new Intent(Intent.ACTION_GET_CONTENT);
+//        chooseFile.setType("*/*");
+//        chooseFile = Intent.createChooser(chooseFile, "Choose a file");
+//        startActivityForResult(chooseFile, READ_REQUEST_CODE);
+    //}
 
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("audio/*");
 
-        startActivityForResult(intent, PICK_AUDIO_REQUEST);
-    }
+//         final int PICK_AUDIO_REQUEST = 1;
+
+//         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//         intent.addCategory(Intent.CATEGORY_OPENABLE);
+//         intent.setType("audio/*");
+
+//         startActivityForResult(intent, PICK_AUDIO_REQUEST);
+//     }
 
     @Override
-    public String onActivityResult(int requestCode, int resultCode,
-                                 Intent resultData) {
 
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            Uri uri = null;
-            if (resultData != null) {
-                uri = resultData.getData();
-                Log.i(TAG, "Uri: " + uri.toString());
-                return uri.toString();
-            }
-        }
+//     public String onActivityResult(int requestCode, int resultCode,
+//                                  Intent resultData) {
 
-        return null;
-    }
+//         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+//             Uri uri = null;
+//             if (resultData != null) {
+//                 uri = resultData.getData();
+//                 Log.i(TAG, "Uri: " + uri.toString());
+//                 return uri.toString();
+//             }
+//         }
+
+//         return null;
+//     }
 
     @Override
     public String toString()

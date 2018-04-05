@@ -6,5 +6,9 @@
     <string name="New_Entry">New Entry</string>
     <string name="entry">Entry</string>
     <string name="save">Save</string>
+    <string name="search_entry">Search Entry</string>
+    <string name="add_video">Add Video</string>
+    <string name="add_audio">Add Audio</string>
+    <string name="add_photo">Add Photo</string>
 </resources>
 

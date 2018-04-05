@@ -1,11 +1,15 @@
 package com.example.cs260.journalapplication;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.VideoView;
 
 import java.util.Scanner;
+
 
 public class MainActivity extends AppCompatActivity {
     Journal diary;
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(showSearchEntryActivity);
     }
+
+
+
 
     /**
      * This main method is for testing in the counsel all code needs to be placed within the MainActivity and attached to the UI

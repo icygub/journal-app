@@ -23,7 +23,54 @@
             android:id="@+id/user_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="New Entry" />
+            android:hint="@string/New_Entry" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_addVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addVideo"
+                android:text="@string/add_video" />
+
+            <Button
+                android:id="@+id/button_addAudio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addAudio"
+                android:text="@string/add_audio" />
+
+            <Button
+                android:id="@+id/button_addPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addPhoto"
+                android:text="@string/add_photo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <VideoView
+                android:id="@+id/videoview_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/imageView_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@mipmap/ic_launcher" />
+        </LinearLayout>
+
     </android.support.design.widget.TextInputLayout>
 
     <Button
@@ -33,7 +80,7 @@
         android:layout_marginBottom="7dp"
         android:layout_marginEnd="198dp"
         android:layout_marginStart="8dp"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
