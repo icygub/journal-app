@@ -1,5 +1,10 @@
 package com.example.cs260.journalapplication;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 
@@ -8,9 +13,8 @@ import java.time.LocalDateTime;
  */
 
 public class JournalDatabase {
+
     private ArrayList<JournalEntry> journalEntries = new ArrayList<>();
-
-
 
     public void addEntry(LocalDateTime dateTime, String text) {
         journalEntries.add(new JournalEntry(dateTime, text));
@@ -39,5 +43,25 @@ public class JournalDatabase {
         for (JournalEntry entry : found) {
             journalEntries.remove(entry);
         }
+    }
+
+    public void saveAllEntriesIntoPhone()throws IOException {
+        for(int i = 0; i < journalEntries.size(); i++){
+            String fileName= "Entry" + i + ".txt";
+            FileOutputStream fos = new FileOutputStream(fileName);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(journalEntries.get(i));
+            oos.close();
+        }
+    }
+
+    public JournalEntry readEntrySavedonPhone(String savedFile)throws IOException,
+    ClassNotFoundException{
+        String fileName = savedFile;
+        FileInputStream fin = new FileInputStream(fileName);
+        ObjectInputStream ois = new ObjectInputStream(fin);
+        JournalEntry entry = (JournalEntry)ois.readObject();
+        ois.close();
+        return entry;
     }
 }
