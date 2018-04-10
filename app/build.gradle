@@ -9,6 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -30,4 +31,9 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
 }
 
-// JORDANS COMMIT
+/*
+* If we add databinding to our project it could make it easier to create a view.
+* https://app.pluralsight.com/library/courses/android-studio-connected-app-building-first/table-of-contents
+* https://app.pluralsight.com/player?course=android-studio-connected-app-building-first&author=simone-alessandria&name=android-studio-connected-app-building-first-m4&clip=3&mode=live
+* Note by Glen
+* */
