@@ -2,6 +2,7 @@ package com.example.cs260.journalapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.databinding.ObservableField;
 import android.net.Uri;
 import android.util.Log;
 
@@ -17,8 +18,21 @@ import static android.support.v4.app.ActivityCompat.startActivityForResult;
 
 public class JournalEntry {
     private LocalDateTime dateTime;
+//    private String text;
+//    private List<String> audioList;
+//    private List<String> imageList;
+//    private List<String> videoList;
+
+    private ObservableField<String> id = new ObservableField<String>();
+    private String title;
     private String text;
-    private List<String> audiosList;
+    private ObservableField<String> audioList= new ObservableField<String>();
+    private ObservableField<String> imageList= new ObservableField<String>();
+    private ObservableField<String> videoList= new ObservableField<String>();
+//    private ObservableField<String> publishedDate= new ObservableField<String>();
+//    private ObservableField<String> description= new ObservableField<String>();
+//    private ObservableField<String> thumbnail= new ObservableField<String>();
+
 
     //private static final int PICK_AUDIO_REQUEST = 1;
 
@@ -27,9 +41,18 @@ public class JournalEntry {
     /**
      * Constructor
      */
-    public JournalEntry(LocalDateTime dateTime, String text){
-        this.dateTime = dateTime;
-        this.text = text;
+    public JournalEntry(LocalDateTime dateTime, String title, String text, String audioList, String imageList, String videoList){
+        try {
+            this.dateTime = dateTime;
+            this.title = title;
+            this.text = text;
+            this.audioList.set(audioList);
+            this.imageList.set(imageList);
+            this.videoList.set(videoList);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public LocalDateTime getDateTime() { return dateTime;}
@@ -68,7 +91,7 @@ public class JournalEntry {
 //         startActivityForResult(intent, PICK_AUDIO_REQUEST);
 //     }
 
-    @Override
+//    @Override
 
 //     public String onActivityResult(int requestCode, int resultCode,
 //                                  Intent resultData) {

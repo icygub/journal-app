@@ -68,7 +68,7 @@ public class Journal {
         LocalDateTime dateTime = readDateTime();
         System.out.println("Enter the entry text:");
         String text = scanner.nextLine();
-        journalDatabase.addEntry(dateTime, text);
+//        journalDatabase.addEntry(dateTime, title, text, audioList, imageList, videoList);
     }
 
     /**

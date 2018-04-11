@@ -12,8 +12,8 @@ public class JournalDatabase {
 
 
 
-    public void addEntry(LocalDateTime dateTime, String text) {
-        journalEntries.add(new JournalEntry(dateTime, text));
+    public void addEntry(LocalDateTime dateTime, String title, String text, String audioList, String imageList, String videoList) {
+        journalEntries.add(new JournalEntry(dateTime, title, text, audioList, imageList, videoList));
     }
 
     /**
