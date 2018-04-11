@@ -45,9 +45,9 @@ public class JournalDatabase {
         }
     }
 
-    public void saveAllEntriesIntoPhone(String FileName)throws IOException {
+    public void saveAllEntriesIntoPhone()throws IOException {
         for(int i = 0; i < journalEntries.size(); i++){
-            String fileName= FileName;
+            String fileName= journalEntries.get(i).getDateTime().toString();
             FileOutputStream fos = new FileOutputStream(fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(journalEntries.get(i));
