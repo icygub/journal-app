@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.widget.MediaController;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,12 +16,16 @@ import android.widget.ImageView;
 import android.widget.VideoView;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class NewEntry extends AppCompatActivity {
 
     private Button save;
     private Journal journal = new Journal();
     private EditText text;
+    private Uri videoUri;
+    private Uri imageUri;
+    private Uri audioUri;
 
     private static final int READ_REQUEST_CODE = 42;
     //private static final int PICKFILE_REQUEST_CODE = 53;
@@ -102,22 +107,24 @@ public class NewEntry extends AppCompatActivity {
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.
             // Pull that URI using resultData.getData().
-            Uri uri = null;
             if (resultData != null) {
-                uri = resultData.getData();
                 if(mediaType.equals("video/*")) {
+                    MediaController mediaController = new MediaController(this);
+                    videoUri = resultData.getData();
                     videoView = findViewById(R.id.videoview_video);
-//                    uri = resultData.getData();
-                    videoView.setVideoURI(uri);
+                    videoView.setVideoURI(videoUri);
                     videoView.requestFocus();
                     videoView.start();
+                    mediaController.setAnchorView(videoView);
+                    videoView.setMediaController(mediaController);
                 }
                 else if(mediaType.equals("audio/*")) {
 
+                    audioUri = resultData.getData();
                     MediaPlayer mediaPlayer = new MediaPlayer();
                     mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     try {
-                        mediaPlayer.setDataSource(getApplicationContext(), uri);
+                        mediaPlayer.setDataSource(getApplicationContext(), audioUri);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -127,13 +134,24 @@ public class NewEntry extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     mediaPlayer.start();
+
                 }
                 else if(mediaType.equals("image/*")) {
+                    imageUri = resultData.getData();
                     ImageView imgView = findViewById(R.id.imageView_image);
-                    imgView.setImageURI(uri);
+                    imgView.setImageURI(imageUri);
                 }
-
             }
         }
+    }
+
+    public void saveEntry(View view) {
+        JournalEntry journalEntry;
+        JournalDatabase journalDatabase;
+        String entryText;
+
+//        LocalDateTime dateTime = readDateTime();
+//
+//        journalDatabase.addEntry(dateTime, text);
     }
 }

@@ -45,7 +45,7 @@ public class Journal {
      * @return a date in the correct format
      */
     private LocalDate readDate() {
-        System.out.println("Enter date as mm/dd/yyyy");
+        // System.out.println("Enter date as mm/dd/yyyy");
         LocalDate date;
         try {
             date = LocalDate.parse(scanner.nextLine(), dateFormatter);

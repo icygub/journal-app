@@ -16,19 +16,22 @@ import static java.lang.System.in;
 
 public class Tag {
 
+
+
     private static List<String> TagList = new ArrayList<String>();
 
     public Tag(List<String> tagList){
         TagList = tagList;
     }
 
+    public static List<String> GetTagList() {
+        return TagList;
+    }
+
     public static void AddTag(String tagToAdd){
         TagList.add(tagToAdd);
     }
 
-    public static List<String> GetTagList(){
-        return TagList;
-    }
 
     public static int FindTag(String tagToFind){
         for(int i = 0; i < TagList.size(); i++){

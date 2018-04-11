@@ -1,8 +1,11 @@
 package com.example.cs260.journalapplication;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import java.time.LocalDateTime;
@@ -19,6 +22,10 @@ public class JournalEntry {
     private LocalDateTime dateTime;
     private String text;
     private List<String> audiosList;
+    private List<Tag> tags;
+    private Uri videoUri;
+    private Uri photoUri;
+    private Uri audioUri;
 
     //private static final int PICK_AUDIO_REQUEST = 1;
 
@@ -68,7 +75,8 @@ public class JournalEntry {
 //         startActivityForResult(intent, PICK_AUDIO_REQUEST);
 //     }
 
-//    @Override
+
+    //@Override
 
 //     public String onActivityResult(int requestCode, int resultCode,
 //                                  Intent resultData) {
@@ -84,7 +92,6 @@ public class JournalEntry {
 
 //         return null;
 //     }
-
     @Override
     public String toString()
     {
