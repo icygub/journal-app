@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.VideoView;
 
 import java.io.IOException;
@@ -26,6 +27,9 @@ public class NewEntry extends AppCompatActivity {
     //private static final int PICKFILE_REQUEST_CODE = 53;
     private VideoView videoView;
     private String mediaType;
+    private Uri videoUri;
+    private Uri imageUri;
+    private Uri audioUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,21 +106,25 @@ public class NewEntry extends AppCompatActivity {
             // Instead, a URI to that document will be contained in the return intent
             // provided to this method as a parameter.
             // Pull that URI using resultData.getData().
-            Uri uri = null;
+
             if (resultData != null) {
-                uri = resultData.getData();
                 if(mediaType.equals("video/*")) {
+                    MediaController mediaController = new MediaController(this);
+                    videoUri = resultData.getData();
                     videoView = findViewById(R.id.videoview_video);
-                    videoView.setVideoURI(uri);
+                    videoView.setVideoURI(videoUri);
                     videoView.requestFocus();
                     videoView.start();
+                    mediaController.setAnchorView(videoView);
+                    videoView.setMediaController(mediaController);
                 }
                 else if(mediaType.equals("audio/*")) {
 
+                    audioUri = resultData.getData();
                     MediaPlayer mediaPlayer = new MediaPlayer();
                     mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     try {
-                        mediaPlayer.setDataSource(getApplicationContext(), uri);
+                        mediaPlayer.setDataSource(getApplicationContext(), audioUri);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -126,13 +134,13 @@ public class NewEntry extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     mediaPlayer.start();
+
                 }
                 else if(mediaType.equals("image/*")) {
+                    imageUri = resultData.getData();
                     ImageView imgView = findViewById(R.id.imageView_image);
-                    //testing
-                    imgView.setImageURI(uri);
+                    imgView.setImageURI(imageUri);
                 }
-
             }
         }
     }
